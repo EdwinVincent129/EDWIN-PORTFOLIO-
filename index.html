@@ -1,0 +1,3133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edwin Vincent — Creative Technology & Cybersecurity</title>
+
+<meta name="description"
+content="Edwin Vincent — Computer Science Creative Enthusiast and Cybersecurity Enthusiast exploring technology, cybersecurity, design, media and innovative projects.">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#080808;
+    color:#f5f5f5;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button{
+    font:inherit;
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root{
+    --black:#080808;
+    --black2:#111111;
+    --white:#f5f5f5;
+    --gray:#999999;
+    --orange:#ff5a1f;
+    --orange2:#ff7a18;
+    --red:#d92525;
+    --line:rgba(255,255,255,.12);
+}
+
+
+/* =====================================================
+   CUSTOM CURSOR GLOW
+===================================================== */
+
+.cursor-glow{
+    position:fixed;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    pointer-events:none;
+
+    background:radial-gradient(
+        circle,
+        rgba(255,80,20,.10),
+        transparent 70%
+    );
+
+    transform:translate(-50%,-50%);
+    z-index:-1;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:22px 0;
+    transition:.4s;
+}
+
+header.scrolled{
+    background:rgba(8,8,8,.85);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav{
+    width:min(1250px,92%);
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-2px;
+}
+
+.logo span{
+    color:var(--orange);
+}
+
+.nav-links{
+    display:flex;
+    gap:32px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#bdbdbd;
+    font-size:13px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.contact-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:10px 15px;
+
+    background:#f5f5f5;
+    color:#111;
+
+    border-radius:30px;
+
+    font-size:12px;
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.contact-btn span{
+    width:25px;
+    height:25px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+    color:white;
+
+    display:grid;
+    place-items:center;
+}
+
+.contact-btn:hover{
+    transform:translateY(-2px);
+}
+
+.menu{
+    display:none;
+
+    border:0;
+    background:none;
+    color:white;
+
+    font-size:25px;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+.container{
+    width:min(1250px,92%);
+    margin:auto;
+}
+
+section{
+    padding:120px 0;
+}
+
+.orange{
+    color:var(--orange);
+}
+
+.muted{
+    color:var(--gray);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    padding-top:130px;
+    min-height:100vh;
+}
+
+.hero-box{
+    min-height:720px;
+
+    border-radius:0 0 55px 55px;
+
+    overflow:hidden;
+    position:relative;
+
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(255,110,30,.7),
+            transparent 28%
+        ),
+        linear-gradient(
+            120deg,
+            #ff6a00 0%,
+            #fa3217 48%,
+            #7e1014 100%
+        );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    padding:70px 55px;
+
+    height:720px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.hero-small{
+    font-size:13px;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+.hero-small span{
+    opacity:.65;
+}
+
+.hero h1{
+    font-size:clamp(70px,10vw,155px);
+    line-height:.78;
+    letter-spacing:-9px;
+
+    max-width:850px;
+
+    font-weight:900;
+}
+
+.hero h1 .outline{
+    color:transparent;
+    -webkit-text-stroke:2px white;
+}
+
+.hero-description{
+    position:absolute;
+
+    right:55px;
+    top:170px;
+
+    width:260px;
+}
+
+.hero-description h3{
+    font-size:20px;
+    line-height:1.1;
+    margin-bottom:15px;
+}
+
+.hero-description p{
+    font-size:12px;
+    line-height:1.6;
+
+    color:rgba(255,255,255,.7);
+}
+
+
+/* =====================================================
+   PROFILE IMAGE
+===================================================== */
+
+.hero-image{
+    position:absolute;
+
+    right:13%;
+    bottom:-20px;
+
+    width:400px;
+    height:550px;
+
+    z-index:1;
+
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+}
+
+.hero-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center;
+
+    border-radius:35px 35px 0 0;
+
+    mix-blend-mode:normal;
+
+    display:block;
+}
+
+
+/* =====================================================
+   HERO BOTTOM
+===================================================== */
+
+.hero-bottom{
+    position:absolute;
+
+    bottom:35px;
+    left:55px;
+    right:55px;
+
+    z-index:4;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+}
+
+.hero-item{
+    border-top:1px solid rgba(255,255,255,.35);
+
+    padding-top:12px;
+}
+
+.hero-item small{
+    font-size:10px;
+    opacity:.6;
+}
+
+.hero-item h4{
+    margin-top:6px;
+    font-size:13px;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+    padding-top:150px;
+}
+
+.intro-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:end;
+}
+
+.section-label{
+    color:var(--orange);
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+}
+
+.intro h2{
+    font-size:clamp(45px,6vw,90px);
+
+    line-height:.92;
+
+    letter-spacing:-5px;
+
+    max-width:650px;
+}
+
+.intro-text{
+    color:#999;
+
+    font-size:16px;
+
+    line-height:1.7;
+
+    max-width:480px;
+}
+
+
+/* =====================================================
+   CAPABILITIES
+===================================================== */
+
+.capabilities{
+    margin-top:100px;
+}
+
+.capability{
+    border-top:1px solid var(--line);
+
+    padding:30px 0;
+
+    display:grid;
+
+    grid-template-columns:100px 1fr 1fr;
+
+    align-items:center;
+
+    gap:30px;
+
+    transition:.4s;
+}
+
+.capability:last-child{
+    border-bottom:1px solid var(--line);
+}
+
+.capability:hover{
+    padding-left:15px;
+}
+
+.cap-number{
+    color:var(--orange);
+
+    font-size:12px;
+}
+
+.capability h3{
+    font-size:30px;
+
+    letter-spacing:-1px;
+}
+
+.capability p{
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   BEHIND THE WORK
+===================================================== */
+
+.behind{
+    padding-top:160px;
+}
+
+.behind-header{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    margin-bottom:70px;
+}
+
+.behind h2{
+    font-size:clamp(48px,6vw,90px);
+
+    line-height:.9;
+
+    letter-spacing:-5px;
+}
+
+.behind-text{
+    font-size:18px;
+
+    color:#ddd;
+
+    max-width:450px;
+}
+
+.behind-text span{
+    color:#777;
+
+    display:block;
+
+    font-size:12px;
+
+    margin-top:25px;
+}
+
+
+/* =====================================================
+   PROJECT CARDS
+===================================================== */
+
+.projects-grid{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+}
+
+.project{
+    min-height:480px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:#111;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.5s;
+}
+
+.project:hover{
+    transform:translateY(-8px);
+}
+
+.project-top{
+    height:280px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    padding:30px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.rain{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,90,20,.95),
+            rgba(120,20,15,.95)
+        );
+}
+
+.campus{
+    background:
+        linear-gradient(
+            145deg,
+            #222,
+            #4c1a0d
+        );
+}
+
+.project-top::after{
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    right:-70px;
+    top:-80px;
+}
+
+.project-number{
+    position:absolute;
+
+    top:25px;
+    left:30px;
+
+    font-size:11px;
+
+    color:rgba(255,255,255,.6);
+}
+
+.project-icon{
+    font-size:75px;
+
+    position:absolute;
+
+    right:30px;
+    bottom:15px;
+
+    opacity:.3;
+}
+
+.project-top h3{
+    position:relative;
+
+    z-index:2;
+
+    font-size:45px;
+
+    letter-spacing:-3px;
+}
+
+.project-content{
+    padding:28px 30px;
+}
+
+.project-content p{
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+}
+
+.tags{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+}
+
+.tag{
+    border:1px solid var(--line);
+
+    padding:7px 10px;
+
+    border-radius:20px;
+
+    font-size:10px;
+
+    color:#bbb;
+}
+
+
+/* =====================================================
+   CREATIVE WORK
+===================================================== */
+
+.creative{
+    padding-top:150px;
+}
+
+.creative-title{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin-bottom:50px;
+}
+
+.creative-title h2{
+    font-size:clamp(50px,7vw,100px);
+
+    line-height:.85;
+
+    letter-spacing:-6px;
+}
+
+.creative-title p{
+    max-width:300px;
+
+    color:#777;
+
+    font-size:13px;
+}
+
+.creative-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+}
+
+.creative-card{
+    height:330px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:#151515;
+
+    border:1px solid var(--line);
+}
+
+.creative-card.large{
+    grid-column:span 2;
+}
+
+.creative-bg{
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:50px;
+
+    font-weight:900;
+
+    letter-spacing:-3px;
+
+    transition:.5s;
+}
+
+.creative-card:hover .creative-bg{
+    transform:scale(1.05);
+}
+
+.design-bg{
+    background:
+        linear-gradient(
+            135deg,
+            #ff651f,
+            #8b1010
+        );
+}
+
+.video-bg{
+    background:
+        linear-gradient(
+            135deg,
+            #222,
+            #111
+        );
+}
+
+.media-bg{
+    background:
+        linear-gradient(
+            135deg,
+            #333,
+            #711a0c
+        );
+}
+
+.creative-label{
+    position:absolute;
+
+    bottom:20px;
+    left:20px;
+    right:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   EXPERIENCE
+===================================================== */
+
+.experience{
+    background:#0d0d0d;
+}
+
+.experience-header{
+    margin-bottom:70px;
+}
+
+.experience-header h2{
+    font-size:clamp(50px,7vw,100px);
+
+    letter-spacing:-6px;
+
+    line-height:.85;
+}
+
+.timeline{
+    border-top:1px solid var(--line);
+}
+
+.timeline-item{
+    display:grid;
+
+    grid-template-columns:130px 1fr 250px;
+
+    gap:30px;
+
+    padding:35px 0;
+
+    border-bottom:1px solid var(--line);
+
+    align-items:start;
+}
+
+.timeline-number{
+    color:var(--orange);
+
+    font-size:12px;
+}
+
+.timeline-item h3{
+    font-size:28px;
+
+    margin-bottom:8px;
+}
+
+.timeline-item p{
+    color:#888;
+
+    font-size:13px;
+
+    max-width:600px;
+}
+
+.timeline-role{
+    text-align:right;
+
+    color:#777;
+
+    font-size:12px;
+}
+
+
+/* =====================================================
+   ACHIEVEMENTS
+===================================================== */
+
+.achievements-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.achievement{
+    border-top:1px solid var(--line);
+
+    padding:25px 0;
+}
+
+.achievement small{
+    color:var(--orange);
+
+    font-size:11px;
+}
+
+.achievement h3{
+    margin:12px 0;
+
+    font-size:22px;
+}
+
+.achievement p{
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   JOURNEY
+===================================================== */
+
+.journey{
+    background:
+        linear-gradient(
+            120deg,
+            #f4511e,
+            #b71919
+        );
+
+    border-radius:45px;
+
+    padding:70px;
+
+    overflow:hidden;
+}
+
+.journey h2{
+    font-size:clamp(50px,7vw,100px);
+
+    line-height:.85;
+
+    letter-spacing:-6px;
+
+    max-width:850px;
+}
+
+.journey-line{
+    margin-top:60px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+.journey-step{
+    padding:12px 17px;
+
+    border:1px solid rgba(255,255,255,.3);
+
+    border-radius:30px;
+
+    font-size:11px;
+
+    background:rgba(0,0,0,.12);
+}
+
+
+/* =====================================================
+   GOALS
+===================================================== */
+
+.goals-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:end;
+}
+
+.goals-grid h2{
+    font-size:clamp(50px,6vw,85px);
+
+    line-height:.88;
+
+    letter-spacing:-5px;
+}
+
+.goals-list{
+    list-style:none;
+}
+
+.goals-list li{
+    padding:15px 0;
+
+    border-bottom:1px solid var(--line);
+
+    color:#aaa;
+
+    font-size:14px;
+}
+
+.goals-list li::before{
+    content:"→";
+
+    color:var(--orange);
+
+    margin-right:12px;
+}
+
+
+/* =====================================================
+   ONLINE
+===================================================== */
+
+.online{
+    padding-top:130px;
+}
+
+.online-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin-bottom:50px;
+}
+
+.online-header h2{
+    font-size:clamp(50px,6vw,90px);
+
+    letter-spacing:-5px;
+
+    line-height:.85;
+}
+
+.online-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    border-top:1px solid var(--line);
+}
+
+.online-card{
+    padding:30px 20px;
+
+    border-right:1px solid var(--line);
+
+    transition:.3s;
+}
+
+.online-card:last-child{
+    border-right:0;
+}
+
+.online-card:hover{
+    background:#111;
+}
+
+.online-card small{
+    color:var(--orange);
+
+    font-size:10px;
+}
+
+.online-card h3{
+    margin-top:12px;
+
+    font-size:22px;
+}
+
+.online-card p{
+    color:#666;
+
+    margin-top:8px;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   RESUME
+===================================================== */
+
+.resume{
+    text-align:center;
+
+    padding:150px 0;
+}
+
+.resume h2{
+    font-size:clamp(55px,8vw,110px);
+
+    line-height:.82;
+
+    letter-spacing:-7px;
+
+    max-width:1000px;
+
+    margin:auto;
+}
+
+.resume p{
+    max-width:450px;
+
+    color:#777;
+
+    margin:30px auto;
+
+    font-size:14px;
+}
+
+.resume-btn{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:white;
+
+    color:#111;
+
+    padding:14px 20px;
+
+    border-radius:30px;
+
+    font-weight:700;
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+.resume-btn span{
+    background:var(--orange);
+
+    color:white;
+
+    width:28px;
+    height:28px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+}
+
+.resume-btn:hover{
+    transform:translateY(-4px);
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact{
+    background:#101010;
+
+    border-radius:50px 50px 0 0;
+
+    padding-bottom:60px;
+}
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:1.3fr .7fr;
+
+    gap:80px;
+}
+
+.contact h2{
+    font-size:clamp(55px,8vw,120px);
+
+    line-height:.8;
+
+    letter-spacing:-8px;
+}
+
+.contact-info{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.contact-info a{
+    border-bottom:1px solid var(--line);
+
+    padding:15px 0;
+
+    color:#aaa;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.contact-info a:hover{
+    color:white;
+
+    padding-left:8px;
+}
+
+.contact-note{
+    margin-top:30px;
+
+    color:#555;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    background:#101010;
+
+    padding:30px 0;
+
+    border-top:1px solid var(--line);
+}
+
+.footer-inner{
+    width:min(1250px,92%);
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#555;
+
+    font-size:10px;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:1s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1000px){
+
+    .hero-description{
+        position:relative;
+
+        right:auto;
+        top:auto;
+
+        margin-top:40px;
+
+        width:250px;
+    }
+
+    .hero-image{
+        opacity:1;
+
+        right:-40px;
+    }
+
+    .hero-bottom{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .intro-grid,
+    .behind-header,
+    .goals-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+
+        gap:40px;
+    }
+
+    .creative-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .creative-card.large{
+        grid-column:span 2;
+    }
+
+    .online-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .timeline-item{
+        grid-template-columns:80px 1fr;
+    }
+
+    .timeline-role{
+        text-align:left;
+
+        grid-column:2;
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    header{
+        padding:17px 0;
+    }
+
+    .nav-links{
+        display:none;
+
+        position:absolute;
+
+        top:70px;
+
+        left:4%;
+        right:4%;
+
+        padding:20px;
+
+        background:#111;
+
+        border:1px solid var(--line);
+
+        border-radius:15px;
+
+        flex-direction:column;
+
+        gap:18px;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .contact-btn{
+        display:none;
+    }
+
+    section{
+        padding:80px 0;
+    }
+
+    .hero{
+        padding-top:90px;
+    }
+
+    .hero-box{
+        min-height:760px;
+
+        border-radius:0 0 35px 35px;
+    }
+
+    .hero-content{
+        height:760px;
+
+        padding:45px 25px;
+
+        justify-content:flex-start;
+
+        padding-top:80px;
+    }
+
+    .hero h1{
+        font-size:70px;
+
+        letter-spacing:-5px;
+    }
+
+    .hero h1 .outline{
+        -webkit-text-stroke:1px white;
+    }
+
+    .hero-description{
+        margin-top:35px;
+    }
+
+    .hero-image{
+        width:270px;
+
+        height:370px;
+
+        right:-30px;
+
+        bottom:0;
+
+        opacity:1;
+    }
+
+    .hero-bottom{
+        left:25px;
+
+        right:25px;
+
+        bottom:25px;
+
+        gap:12px;
+    }
+
+    .hero-item h4{
+        font-size:11px;
+    }
+
+    .intro h2,
+    .behind h2,
+    .creative-title h2,
+    .experience-header h2,
+    .goals-grid h2,
+    .online-header h2,
+    .contact h2{
+        letter-spacing:-4px;
+    }
+
+    .capability{
+        grid-template-columns:45px 1fr;
+    }
+
+    .capability p{
+        grid-column:2;
+    }
+
+    .projects-grid{
+        grid-template-columns:1fr;
+    }
+
+    .creative-grid{
+        grid-template-columns:1fr;
+    }
+
+    .creative-card.large{
+        grid-column:span 1;
+    }
+
+    .creative-title,
+    .online-header{
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:25px;
+    }
+
+    .achievements-grid{
+        grid-template-columns:1fr;
+    }
+
+    .journey{
+        padding:40px 25px;
+
+        border-radius:30px;
+    }
+
+    .journey h2{
+        letter-spacing:-4px;
+    }
+
+    .online-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .online-card{
+        border-bottom:1px solid var(--line);
+    }
+
+    .resume{
+        padding:100px 0;
+    }
+
+    .contact{
+        border-radius:30px 30px 0 0;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+
+        gap:10px;
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .hero h1{
+        font-size:58px;
+    }
+
+    .hero-bottom{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .online-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     CURSOR
+===================================================== -->
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header id="header">
+
+    <div class="nav">
+
+        <a href="#home" class="logo">
+            EDWIN<span>.</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#creative">Creative</a>
+            </li>
+
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+        <a href="#contact" class="contact-btn">
+
+            Let's Talk
+
+            <span>↗</span>
+
+        </a>
+
+        <button class="menu" id="menu">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="hero-box reveal">
+
+    <div class="hero-content">
+
+
+        <div class="hero-small">
+
+            COMPUTER SCIENCE
+            <span>×</span>
+            CREATIVE TECHNOLOGY
+
+        </div>
+
+
+        <h1>
+
+            Hi, I'm<br>
+
+            <span class="outline">
+                Edwin
+            </span><br>
+
+            Vincent.
+
+        </h1>
+
+
+        <div class="hero-description">
+
+            <h3>
+
+                Cybersecurity,
+                technology & creative work.
+
+            </h3>
+
+
+            <p>
+
+                I explore the intersection of technology
+                and creativity through cybersecurity,
+                innovative ideas, poster design,
+                video editing and practical projects.
+
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             PROFILE PHOTO
+        ================================================== -->
+
+        <div class="hero-image">
+
+            <img
+                id="profileImage"
+                src="edwin.jpg"
+                alt="Edwin Vincent"
+            >
+
+        </div>
+
+
+        <!-- =================================================
+             HERO BOTTOM
+        ================================================== -->
+
+        <div class="hero-bottom">
+
+
+            <div class="hero-item">
+
+                <small>#01</small>
+
+                <h4>
+                    Cybersecurity
+                </h4>
+
+            </div>
+
+
+            <div class="hero-item">
+
+                <small>#02</small>
+
+                <h4>
+                    Poster Design
+                </h4>
+
+            </div>
+
+
+            <div class="hero-item">
+
+                <small>#03</small>
+
+                <h4>
+                    Video Editing
+                </h4>
+
+            </div>
+
+
+            <div class="hero-item">
+
+                <small>#04</small>
+
+                <h4>
+                    Technology & Innovation
+                </h4>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="intro" id="about">
+
+<div class="container">
+
+    <div class="intro-grid reveal">
+
+
+        <div>
+
+            <div class="section-label">
+                Behind the Person
+            </div>
+
+
+            <h2>
+
+                Exploring technology
+                with a creative mind.
+
+            </h2>
+
+        </div>
+
+
+        <div class="intro-text">
+
+
+            <p>
+
+                I am a Computer Science enthusiast with
+                a strong interest in cybersecurity,
+                technology, innovative ideas, poster and
+                graphic design, and video editing.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                I enjoy learning new technologies,
+                experimenting with ideas and turning
+                concepts into practical projects.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                Alongside technical learning, I contribute
+                to communities through design, media,
+                teamwork, communication and leadership.
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         CAPABILITIES
+    ================================================== -->
+
+    <div class="capabilities">
+
+
+        <div class="capability reveal">
+
+            <div class="cap-number">
+                01
+            </div>
+
+            <h3>
+                Cybersecurity
+            </h3>
+
+            <p>
+
+                Building cybersecurity fundamentals,
+                exploring security concepts, networking,
+                Linux and practical security workflows.
+
+            </p>
+
+        </div>
+
+
+        <div class="capability reveal">
+
+            <div class="cap-number">
+                02
+            </div>
+
+            <h3>
+                Creative Design
+            </h3>
+
+            <p>
+
+                Poster design, graphic design, visual
+                content creation and creative concept
+                development.
+
+            </p>
+
+        </div>
+
+
+        <div class="capability reveal">
+
+            <div class="cap-number">
+                03
+            </div>
+
+            <h3>
+                Video & Media
+            </h3>
+
+            <p>
+
+                Video editing, digital media,
+                content creation and social media
+                visual content.
+
+            </p>
+
+        </div>
+
+
+        <div class="capability reveal">
+
+            <div class="cap-number">
+                04
+            </div>
+
+            <h3>
+                Technology & Innovation
+            </h3>
+
+            <p>
+
+                Exploring new technologies and developing
+                practical ideas that combine technology,
+                creativity and problem solving.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section class="behind" id="projects">
+
+<div class="container">
+
+
+    <div class="behind-header reveal">
+
+
+        <h2>
+
+            Shaping ideas
+            into practical
+            projects.
+
+        </h2>
+
+
+        <div class="behind-text">
+
+            I enjoy building and exploring projects
+            that connect real-world problems with
+            technology.
+
+
+            <span>
+
+                From smart automation to student-focused
+                digital concepts.
+
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <!-- RAIN TRIGGER -->
+
+        <article class="project reveal">
+
+
+            <div class="project-top rain">
+
+
+                <div class="project-number">
+
+                    PROJECT / 01
+
+                </div>
+
+
+                <div class="project-icon">
+                    ☔
+                </div>
+
+
+                <h3>
+
+                    Rain<br>
+                    Trigger
+
+                </h3>
+
+
+            </div>
+
+
+            <div class="project-content">
+
+
+                <p>
+
+                    An ESP32-based smart clothes-rack
+                    system designed to protect clothes
+                    from sudden rain.
+
+                    A rain sensor detects rainfall and
+                    the ESP32 controls a servo motor to
+                    move the rack to a protected position.
+
+                    The system can also be manually
+                    controlled through a mobile-friendly
+                    web interface.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        ESP32
+                    </span>
+
+                    <span class="tag">
+                        IoT
+                    </span>
+
+                    <span class="tag">
+                        Automation
+                    </span>
+
+                    <span class="tag">
+                        Rain Sensor
+                    </span>
+
+                    <span class="tag">
+                        Servo Motor
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </article>
+
+
+        <!-- CAMPUSXP -->
+
+        <article class="project reveal">
+
+
+            <div class="project-top campus">
+
+
+                <div class="project-number">
+
+                    PROJECT / 02
+
+                </div>
+
+
+                <div class="project-icon">
+                    ✦
+                </div>
+
+
+                <h3>
+
+                    Campus<br>
+                    XP
+
+                </h3>
+
+
+            </div>
+
+
+            <div class="project-content">
+
+
+                <p>
+
+                    A campus-focused digital platform
+                    concept designed to bring college
+                    information, events, student
+                    activities, achievements and reward
+                    points into one platform.
+
+                    Students can earn XP through academic,
+                    community, creative and extracurricular
+                    contributions.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        Digital Platform
+                    </span>
+
+                    <span class="tag">
+                        Student Community
+                    </span>
+
+                    <span class="tag">
+                        Reward System
+                    </span>
+
+                    <span class="tag">
+                        UI/UX
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CREATIVE WORK
+===================================================== -->
+
+<section class="creative" id="creative">
+
+<div class="container">
+
+
+    <div class="creative-title reveal">
+
+
+        <h2>
+
+            Creative<br>
+            Work.
+
+        </h2>
+
+
+        <p>
+
+            Design and media are an important part
+            of how I communicate ideas visually.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="creative-grid">
+
+
+        <div class="creative-card large reveal">
+
+
+            <div class="creative-bg design-bg">
+
+                DESIGN
+
+            </div>
+
+
+            <div class="creative-label">
+
+                <span>
+                    01 / Poster Design
+                </span>
+
+                <span>
+                    ↗
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="creative-card reveal">
+
+
+            <div class="creative-bg video-bg">
+
+                VIDEO
+
+            </div>
+
+
+            <div class="creative-label">
+
+                <span>
+                    02 / Video Editing
+                </span>
+
+                <span>
+                    ↗
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="creative-card reveal">
+
+
+            <div class="creative-bg media-bg">
+
+                MEDIA
+
+            </div>
+
+
+            <div class="creative-label">
+
+                <span>
+                    03 / Media Work
+                </span>
+
+                <span>
+                    ↗
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="creative-card large reveal">
+
+
+            <div class="creative-bg video-bg">
+
+                VISUAL
+
+            </div>
+
+
+            <div class="creative-label">
+
+                <span>
+                    04 / Visual Content
+                </span>
+
+                <span>
+                    ↗
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+
+<section class="experience" id="experience">
+
+<div class="container">
+
+
+    <div class="experience-header reveal">
+
+
+        <div class="section-label">
+            Experience
+        </div>
+
+
+        <h2>
+
+            Learning by<br>
+            getting involved.
+
+        </h2>
+
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item reveal">
+
+
+            <div class="timeline-number">
+                01
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Cybersecurity Internship
+                </h3>
+
+
+                <p>
+
+                    Gaining practical exposure to
+                    cybersecurity concepts, tools,
+                    workflows and real-world security
+                    practices.
+
+                </p>
+
+            </div>
+
+
+            <div class="timeline-role">
+                Cybersecurity
+            </div>
+
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+
+            <div class="timeline-number">
+                02
+            </div>
+
+
+            <div>
+
+                <h3>
+                    FOSS Club — Media Lead
+                </h3>
+
+
+                <p>
+
+                    Contributing to media activities,
+                    video content, communication,
+                    teamwork, networking and leadership.
+
+                </p>
+
+            </div>
+
+
+            <div class="timeline-role">
+                Media & Leadership
+            </div>
+
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+
+            <div class="timeline-number">
+                03
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Palas JECC Community — Design Lead
+                </h3>
+
+
+                <p>
+
+                    Working on poster designing,
+                    creative content, community activities
+                    and team collaboration.
+
+                </p>
+
+            </div>
+
+
+            <div class="timeline-role">
+                Design
+            </div>
+
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+
+            <div class="timeline-number">
+                04
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Mu Learn — Design Lead
+                </h3>
+
+
+                <p>
+
+                    Contributing to creative design
+                    activities, teamwork, communication
+                    and community work.
+
+                </p>
+
+            </div>
+
+
+            <div class="timeline-role">
+                Creative Community
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACHIEVEMENTS
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+
+    <div class="experience-header reveal">
+
+
+        <div class="section-label">
+            Activities
+        </div>
+
+
+        <h2>
+
+            Learning beyond
+            the classroom.
+
+        </h2>
+
+
+    </div>
+
+
+    <div class="achievements-grid">
+
+
+        <div class="achievement reveal">
+
+
+            <small>
+                01
+            </small>
+
+
+            <h3>
+                K-DISC — YIP 8.0
+            </h3>
+
+
+            <p>
+
+                Participated in YIP 8.0 and contributed
+                through problem-solving and idea
+                development activities.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="achievement reveal">
+
+
+            <small>
+                02
+            </small>
+
+
+            <h3>
+                Cloud Native Kerala 2026
+            </h3>
+
+
+            <p>
+
+                Attended the Cloud Native Kerala 2026
+                event at Le Meridien Kochi and explored
+                technology and community learning.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="achievement reveal">
+
+
+            <small>
+                03
+            </small>
+
+
+            <h3>
+                Technical & Community Activities
+            </h3>
+
+
+            <p>
+
+                Participating in technical communities,
+                creative activities, design work and
+                collaborative projects.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     JOURNEY
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+
+<div class="journey reveal">
+
+
+    <div class="section-label">
+        Learning Journey
+    </div>
+
+
+    <h2>
+
+        Learning.<br>
+        Creating.<br>
+        Evolving.
+
+    </h2>
+
+
+    <div class="journey-line">
+
+
+        <div class="journey-step">
+            Computer Science
+        </div>
+
+
+        <div class="journey-step">
+            Technology Exploration
+        </div>
+
+
+        <div class="journey-step">
+            Cybersecurity
+        </div>
+
+
+        <div class="journey-step">
+            Networking & Linux
+        </div>
+
+
+        <div class="journey-step">
+            Practical Projects
+        </div>
+
+
+        <div class="journey-step">
+            Internship
+        </div>
+
+
+        <div class="journey-step">
+            Creative Work
+        </div>
+
+
+        <div class="journey-step">
+            Community
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     GOALS
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+
+<div class="goals-grid reveal">
+
+
+    <h2>
+
+        What's<br>
+        next?
+
+    </h2>
+
+
+    <ul class="goals-list">
+
+
+        <li>
+            Strengthen cybersecurity fundamentals
+        </li>
+
+
+        <li>
+            Gain practical cybersecurity experience
+        </li>
+
+
+        <li>
+            Build meaningful real-world projects
+        </li>
+
+
+        <li>
+            Improve technical and creative skills
+        </li>
+
+
+        <li>
+            Explore innovative technologies
+        </li>
+
+
+        <li>
+            Contribute to technology communities
+        </li>
+
+
+        <li>
+            Improve communication and networking
+        </li>
+
+
+        <li>
+            Prepare for future career opportunities
+        </li>
+
+
+    </ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ONLINE PRESENCE
+===================================================== -->
+
+<section class="online">
+
+<div class="container">
+
+
+    <div class="online-header reveal">
+
+
+        <h2>
+
+            Find me<br>
+            online.
+
+        </h2>
+
+
+    </div>
+
+
+    <div class="online-grid">
+
+
+        <a class="online-card reveal"
+           href="https://www.linkedin.com/in/edwin-vincent-a12321332"
+           target="_blank"
+           rel="noopener">
+
+
+            <small>
+                01
+            </small>
+
+
+            <h3>
+                LinkedIn
+            </h3>
+
+
+            <p>
+                Professional profile
+            </p>
+
+
+        </a>
+
+
+        <a class="online-card reveal"
+           href="https://www.instagram.com/edwin.vincent.129"
+           target="_blank"
+           rel="noopener">
+
+
+            <small>
+                02
+            </small>
+
+
+            <h3>
+                Instagram
+            </h3>
+
+
+            <p>
+                Creative & personal
+            </p>
+
+
+        </a>
+
+
+        <a class="online-card reveal"
+           href="mailto:ev1000300@gmail.com">
+
+
+            <small>
+                03
+            </small>
+
+
+            <h3>
+                Email
+            </h3>
+
+
+            <p>
+                ev1000300@gmail.com
+            </p>
+
+
+        </a>
+
+
+        <a class="online-card reveal"
+           href="tel:+917034015378">
+
+
+            <small>
+                04
+            </small>
+
+
+            <h3>
+                Phone
+            </h3>
+
+
+            <p>
+                +91 70340 15378
+            </p>
+
+
+        </a>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     RESUME
+===================================================== -->
+
+<section class="resume">
+
+<div class="container reveal">
+
+
+    <div class="section-label">
+        Resume
+    </div>
+
+
+    <h2>
+
+        Want to know
+        more about
+        my journey?
+
+    </h2>
+
+
+    <p>
+
+        Explore my education, experience, projects,
+        skills and activities in more detail.
+
+    </p>
+
+
+    <a href="resume.pdf"
+       download
+       class="resume-btn">
+
+        Download Resume
+
+        <span>
+            ↓
+        </span>
+
+    </a>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+
+    <div class="contact-grid reveal">
+
+
+        <div>
+
+
+            <div class="section-label">
+                Let's Connect
+            </div>
+
+
+            <h2>
+
+                Let's build
+                something
+                meaningful.
+
+            </h2>
+
+
+        </div>
+
+
+        <div>
+
+
+            <div class="contact-info">
+
+
+                <a href="mailto:ev1000300@gmail.com">
+
+                    Email ↗
+
+                    <br>
+
+                    ev1000300@gmail.com
+
+                </a>
+
+
+                <a href="tel:+917034015378">
+
+                    Phone ↗
+
+                    <br>
+
+                    +91 70340 15378
+
+                </a>
+
+
+                <a href="https://wa.me/917034015378"
+                   target="_blank"
+                   rel="noopener">
+
+                    WhatsApp ↗
+
+                </a>
+
+
+                <a href="https://www.linkedin.com/in/edwin-vincent-a12321332"
+                   target="_blank"
+                   rel="noopener">
+
+                    LinkedIn ↗
+
+                </a>
+
+
+                <a href="https://www.instagram.com/edwin.vincent.129"
+                   target="_blank"
+                   rel="noopener">
+
+                    Instagram ↗
+
+                </a>
+
+
+            </div>
+
+
+            <p class="contact-note">
+
+                Interested in technology,
+                cybersecurity, creative work,
+                collaboration or innovative ideas?
+                Feel free to connect.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-inner">
+
+
+    <span>
+        © 2026 Edwin Vincent
+    </span>
+
+
+    <span>
+        Built with curiosity, creativity & code.
+    </span>
+
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menu =
+document.getElementById("menu");
+
+const navLinks =
+document.getElementById("navLinks");
+
+
+menu.addEventListener("click", () => {
+
+    navLinks.classList.toggle("show");
+
+});
+
+
+document.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("show");
+
+    });
+
+});
+
+
+/* =====================================================
+   NAVBAR SCROLL
+===================================================== */
+
+const header =
+document.getElementById("header");
+
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 50){
+
+        header.classList.add("scrolled");
+
+    }else{
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+reveals.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* =====================================================
+   CURSOR GLOW
+===================================================== */
+
+const cursorGlow =
+document.getElementById("cursorGlow");
+
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        cursorGlow.style.left =
+        event.clientX + "px";
+
+        cursorGlow.style.top =
+        event.clientY + "px";
+
+    }
+);
+
+
+/* =====================================================
+   SMOOTH BUTTON MICRO INTERACTION
+===================================================== */
+
+document.querySelectorAll("a")
+.forEach(link => {
+
+    link.addEventListener("click", function(){
+
+        this.style.transform =
+        "scale(.98)";
+
+        setTimeout(() => {
+
+            this.style.transform = "";
+
+        },120);
+
+    });
+
+});
+
+
+</script>
+
+</body>
+</html>
